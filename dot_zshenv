@@ -1,0 +1,20 @@
+# Sets environmental variables
+
+# Sets the user's umask
+umask 0002
+
+# Sets the directory of the zsh config
+export ZDOTDIR=$HOME/.zsh
+
+# Sets general env variables
+export EDITOR='vim'
+export LANG=en_US.UTF-8
+export MANPATH="/usr/local/man:$MANPATH"
+
+export GOPATH=$HOME/go
+export LINKERDPATH=$HOME/.linkerd2
+export CARGOPATH=$home/.cargo
+
+# Sets system path
+export PATH=$PATH:/usr/local/go/bin:/snap/bin:$HOME/.local/bin:$CARGOPATH/bin:$GOPATH/go:$LINKERDPATH/bin
+

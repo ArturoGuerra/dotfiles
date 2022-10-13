@@ -1,0 +1,84 @@
+Host yavin
+    User exegol
+    HostName 10.50.1.100
+    IdentityFile ~/exegol/sshkeys/exegol
+    #_Desc Exegol K8s Master Node
+
+Host tatooine
+    User exegol
+    HostName 10.50.1.101
+    IdentityFile ~/exegol/sshkeys/exegol
+    #_Desc Exegol K8s Master Node
+
+Host dantooine
+    User exegol
+    HostName 10.50.1.102
+    IdentityFile ~/exegol/sshkeys/exegol
+    #_Desc Exegol K8s Master Node
+
+Host mortis
+    User arturo
+    HostName 10.50.1.15
+    #_Desc Personal vps on proxmox
+
+Host bespin
+    User arturo
+    HostName 10.60.1.55
+    #_Desc K3s Cluster
+
+Host unifi
+    User arturo
+    HostName 10.50.1.180
+    #_Desc Unifi Controller
+
+Host hoth
+    User root
+    ProxyJump mortis
+    Hostname 45.63.83.103
+    #_Desc Vultr Exit node
+
+Host kube-router
+    User vyos
+    Hostname 10.50.1.140
+    #_Desc BGP Router for k8s
+
+
+Host degobah
+    User arturo
+    ProxyJump mortis
+    Hostname 34.133.46.90
+    #_Desc Google Cloud Server
+
+Host nalhutta
+    User arturo
+    Hostname 10.50.1.66
+    #_Desc Syslog forwarder
+
+Host starkiller
+    User root
+    Hostname 10.50.1.10
+    #_Desc Proxmox Node
+
+Host deathstar
+    User root
+    Hostname 10.50.1.11
+    #_Desc Proxmox Node
+
+Host malachor
+    User root
+    Hostname 10.50.1.12
+    #_Desc Proxmox Node
+
+Host scarif
+    User root
+    Hostname 10.50.1.20
+    #_Desc TrueNAS Server
+
+
+Host *
+    ForwardAgent yes
+    AddKeysToAgent yes
+    #IdentityAgent ~/.ssh/ssh-agent.sock
+    IdentityAgent /run/user/1000/gnupg/S.gpg-agent.ssh
+    IdentityFile ~/.ssh/arturo/arturo_ed25519
+    IdentityFile ~/.ssh/arturo/arturo_rsa
