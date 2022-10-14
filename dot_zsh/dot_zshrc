@@ -7,7 +7,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
 #Exports full range of colors
 blu="$(tput setaf 4)"
 norm="$(tput sgr0)"
@@ -34,17 +33,16 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-### End of Zinit's installer chunk
+# Load theme
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
 
-# Load oh-my-zsh libs
-zinit snippet OMZL::grep.zsh
-zinit snippet OMZL::history.zsh
-zinit snippet OMZL::completion.zsh
-zinit snippet OMZL::key-bindings.zsh
-zinit snippet OMZL::theme-and-appearance.zsh
+zinit creinstall -Q $ZDOTDIR/completions
 
-# Load oh-my-zsh plugins
-zinit wait:'0a' lucid light-mode for \
+# Load oh-my-zsh plugins and libs
+zinit light-mode for \
+    OMZL::key-bindings.zsh \
+    OMZL::theme-and-appearance.zsh \
     OMZP::wd \
     OMZP::git \
     OMZP::pip \
@@ -52,21 +50,18 @@ zinit wait:'0a' lucid light-mode for \
     OMZP::rsync \
     OMZP::common-aliases
 
-# Only load if fzf is installed
-zinit wait:'0b' has:'fzf' lucid light-mode for \
+# Load only if fzf is installed
+zinit wait="0a" has:'fzf' lucid light-mode for \
     OMZP::fzf \
     sunlei/zsh-ssh
 
-# Load plugins
-zinit wait:"0c" blockf lucid light-mode for \
+# Load plugins in turbo mode
+zinit wait:"0b" blockf lucid light-mode for \
    trystan2k/zsh-tab-title \
    zsh-users/zsh-completions \
    atload:'_zsh_autosuggest_start' zsh-users/zsh-autosuggestions \
    atload:'zicompinit; zicdreplay' zdharma-continuum/fast-syntax-highlighting
 
-# Load theme
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
 
 if [[ -f ~/.zsh/zshrc.d ]]; then
     for file in ~/.zsh/zshrc.d/*.zsh; do
