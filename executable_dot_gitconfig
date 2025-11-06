@@ -1,0 +1,10 @@
+[user]
+	signingkey = CAD167F1FD3E4FF0!
+	name = Arturo Guerra
+	email = ar2roguerra@gmail.com
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false

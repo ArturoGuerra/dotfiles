@@ -1,0 +1,31 @@
+# Sets environmental variables
+
+# Sets the user's umask
+umask 0002
+
+# Sets the directory of the zsh config
+export ZDOTDIR=$HOME/.zsh
+
+export GPG_TTY=$(tty)
+
+export fpath=($ZDOTDIR/completions $fpath)
+
+# Sets general env variables
+export EDITOR='nvim'
+export LANG=en_US.UTF-8
+export MANPATH="/usr/local/man:$MANPATH"
+
+# Languages
+export GO=/usr/local/go
+export GOPATH=$HOME/go
+export CARGOPATH=$HOME/.cargo
+export BUNPATH=$HOME/.bun
+export FOUNDRY=$HOME/.foundry
+export GHCUPPATH=$HOME/.ghcup
+export CABALPATH=$HOME/.cabal
+
+#Packages
+export SNAPPATH=/snap
+
+# Sets system path
+export PATH="$GO/bin:$SNAP/bin:$CARGOPATH/bin:$GOPATH/bin:$BUNPATH/bin:$LINKERDPATH/bin:$FOUNDRY/bin:$SNAPPATH/bin:$GHCUPPATH/bin:$CABALPATH/bin:$PATH"
