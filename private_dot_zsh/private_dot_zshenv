@@ -28,4 +28,4 @@ export CABALPATH=$HOME/.cabal
 export SNAPPATH=/snap
 
 # Sets system path
-export PATH="$GO/bin:$SNAP/bin:$CARGOPATH/bin:$GOPATH/bin:$BUNPATH/bin:$LINKERDPATH/bin:$FOUNDRY/bin:$SNAPPATH/bin:$GHCUPPATH/bin:$CABALPATH/bin:$PATH"
+export PATH="$GO/bin:$SNAP/bin:$CARGOPATH/bin:$GOPATH/bin:$BUNPATH/bin:$LINKERDPATH/bin:$FOUNDRY/bin:$SNAPPATH/bin:$GHCUPPATH/bin:$CABALPATH/bin:$HOME/.local/bin:$PATH"
